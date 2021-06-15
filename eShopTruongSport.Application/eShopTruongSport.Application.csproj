@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.IdentityModel.Tokens" Version="5.6.0" />
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.6.0" />
+	</ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\eShopTruongSport.Data\eShopTruongSport.Data.csproj" />
+    <ProjectReference Include="..\eShopTruongSport.Utilities\eShopTruongSport.Utilities.csproj" />
+    <ProjectReference Include="..\eShopTruongSport.ViewModels\eShopTruongSport.ViewModels.csproj" />
+  </ItemGroup>
+
+</Project>
