@@ -1,4 +1,5 @@
-﻿using eShopTruongSport.ViewModels.System.Users;
+﻿using eShopTruongSport.ViewModels.Common;
+using eShopTruongSport.ViewModels.System.Users;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,5 +12,6 @@ namespace eShopTruongSport.Application.System.Users
         Task<string> Authencate(LoginRequest request);
 
         Task<bool> Register(RegisterRequest request);
+        Task<PagedResult<UserVm>> GetListUser(GetUserPagingRequest request);
     }
 }
