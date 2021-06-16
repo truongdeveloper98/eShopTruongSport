@@ -12,6 +12,7 @@ namespace eShopTruongSport.BackendApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class UsersController : ControllerBase
     {
         private readonly IUserService _userService;
@@ -29,6 +30,7 @@ namespace eShopTruongSport.BackendApi.Controllers
                 return BadRequest(ModelState);
 
             var resultToken = await _userService.Authencate(request);
+
             if (string.IsNullOrEmpty(resultToken))
             {
                 return BadRequest("Username or password is incorrect.");
@@ -49,6 +51,12 @@ namespace eShopTruongSport.BackendApi.Controllers
                 return BadRequest("Register is unsuccessful.");
             }
             return Ok();
+        }
+        [HttpGet("paging")]
+        public async Task<IActionResult> GetAllPaging([FromQuery] GetUserPagingRequest request)
+        {
+            var products = await _userService.GetListUser(request);
+            return Ok(products);
         }
     }
 }

@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace eShopTruongSport.Application.Catalog.Products
 {
-    public interface IManageProductService
+    public interface IProductService
     {
+        Task<PagedResult<ProductViewModel>> GetAllByCategoryId(string languageId, GetPublicProductPagingRequest request);
         Task<int> Create(ProductCreateRequest request);
 
         Task<int> Update(ProductUpdateRequest request);
