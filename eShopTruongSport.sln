@@ -26,6 +26,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0.Solution Items", "0.Solut
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShopTruongSport.AdminApp", "eShopTruongSport.AdminApp\eShopTruongSport.AdminApp.csproj", "{EC9F553F-5D08-4879-B83E-414A0D8E45E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,10 @@ Global
 		{023FA36A-174D-46EB-888A-A4D8F89E527B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{023FA36A-174D-46EB-888A-A4D8F89E527B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{023FA36A-174D-46EB-888A-A4D8F89E527B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC9F553F-5D08-4879-B83E-414A0D8E45E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC9F553F-5D08-4879-B83E-414A0D8E45E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC9F553F-5D08-4879-B83E-414A0D8E45E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC9F553F-5D08-4879-B83E-414A0D8E45E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,6 +73,7 @@ Global
 		{3851251E-1364-41EC-814C-9A786AD5E0E9} = {8FF02ACB-48B0-45DE-BC77-6299E10A8250}
 		{A70CB164-A083-4AC1-A8D9-3B029A74C6CB} = {EF5605E8-CDC1-40CD-8B32-0ED104D30EB9}
 		{023FA36A-174D-46EB-888A-A4D8F89E527B} = {4DE451AD-2EF2-4D35-854F-1A860FB96B83}
+		{EC9F553F-5D08-4879-B83E-414A0D8E45E7} = {4DE451AD-2EF2-4D35-854F-1A860FB96B83}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {40A0DC00-366B-4F7A-8F29-A6E35D7A7D09}
