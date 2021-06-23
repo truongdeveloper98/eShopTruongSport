@@ -19,5 +19,4 @@
 - Choose profile to run or press F5
 ## How to contribute
 - Fork and create your branch
-- Create Pull request to us.
-jsdhkjshd
+- Create Pull request to
