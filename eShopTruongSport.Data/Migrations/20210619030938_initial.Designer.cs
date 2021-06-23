@@ -10,7 +10,7 @@ using eShopTruongSport.Data.EF;
 namespace eShopTruongSport.Data.Migrations
 {
     [DbContext(typeof(EShopDbContext))]
-    [Migration("20210615074417_initial")]
+    [Migration("20210619030938_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -182,7 +182,7 @@ namespace eShopTruongSport.Data.Migrations
                         new
                         {
                             Id = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc"),
-                            ConcurrencyStamp = "a85a73e7-b16f-4fd7-bb84-46269fe7b942",
+                            ConcurrencyStamp = "c4eafc91-899d-42ff-89a2-9d1faff7e70f",
                             Description = "Administrator role",
                             Name = "admin",
                             NormalizedName = "admin"
@@ -259,7 +259,7 @@ namespace eShopTruongSport.Data.Migrations
                         {
                             Id = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "428d13d9-5c62-42c2-bc01-b70cf38a970e",
+                            ConcurrencyStamp = "174254fd-f23e-4777-ac22-003ce6b799e7",
                             Dob = new DateTime(2020, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "truongcntt98@gmail.com",
                             EmailConfirmed = true,
@@ -268,7 +268,7 @@ namespace eShopTruongSport.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "truongcntt98@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEBHHYrHnKWqLOELmfKQ2E30V8eEIj3gCQ0olIAqb/nD6clSnUPcXmtewQLDVurnzHQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEKr6YIqlZcWgAczZJaj0NIUn7pzr2t8FZdwHog5SS6+k7s/sIhYqRGzEY2ikaztK+Q==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -613,7 +613,7 @@ namespace eShopTruongSport.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2021, 6, 15, 14, 44, 16, 703, DateTimeKind.Local).AddTicks(4536),
+                            DateCreated = new DateTime(2021, 6, 19, 10, 9, 37, 873, DateTimeKind.Local).AddTicks(5769),
                             OriginalPrice = 100000m,
                             Price = 200000m,
                             Stock = 0,

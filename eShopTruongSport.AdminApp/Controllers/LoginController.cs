@@ -4,6 +4,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using eShopTruongSport.AdminApp.Service;
+using eShopTruongSport.Utilities.Constants;
 using eShopTruongSport.ViewModels.System.Users;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -48,7 +49,8 @@ namespace eShopTruongSport.AdminApp.Controllers
                 ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(10),
                 IsPersistent = false
             };
-            HttpContext.Session.SetString("Token", result.ObjResult);
+            HttpContext.Session.SetString(SystemConstants.AppSettings.DefaultLanguageID, _configuration[SystemConstants.AppSettings.DefaultLanguageID]);
+            HttpContext.Session.SetString(SystemConstants.AppSettings.Token, result.ObjResult);
             await HttpContext.SignInAsync(
                         CookieAuthenticationDefaults.AuthenticationScheme,
                         userPrincipal,

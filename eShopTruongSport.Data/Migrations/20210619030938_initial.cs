@@ -447,7 +447,7 @@ namespace eShopTruongSport.Data.Migrations
             migrationBuilder.InsertData(
                 table: "AppRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Description", "Name", "NormalizedName" },
-                values: new object[] { new Guid("8d04dce2-969a-435d-bba4-df3f325983dc"), "a85a73e7-b16f-4fd7-bb84-46269fe7b942", "Administrator role", "admin", "admin" });
+                values: new object[] { new Guid("8d04dce2-969a-435d-bba4-df3f325983dc"), "c4eafc91-899d-42ff-89a2-9d1faff7e70f", "Administrator role", "admin", "admin" });
 
             migrationBuilder.InsertData(
                 table: "AppUserRoles",
@@ -457,7 +457,7 @@ namespace eShopTruongSport.Data.Migrations
             migrationBuilder.InsertData(
                 table: "AppUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Dob", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"), 0, "428d13d9-5c62-42c2-bc01-b70cf38a970e", new DateTime(2020, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), "truongcntt98@gmail.com", true, "Truong", "Dinh", false, null, "truongcntt98@gmail.com", "admin", "AQAAAAEAACcQAAAAEBHHYrHnKWqLOELmfKQ2E30V8eEIj3gCQ0olIAqb/nD6clSnUPcXmtewQLDVurnzHQ==", null, false, "", false, "admin" });
+                values: new object[] { new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"), 0, "174254fd-f23e-4777-ac22-003ce6b799e7", new DateTime(2020, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified), "truongcntt98@gmail.com", true, "Truong", "Dinh", false, null, "truongcntt98@gmail.com", "admin", "AQAAAAEAACcQAAAAEKr6YIqlZcWgAczZJaj0NIUn7pzr2t8FZdwHog5SS6+k7s/sIhYqRGzEY2ikaztK+Q==", null, false, "", false, "admin" });
 
             migrationBuilder.InsertData(
                 table: "Categories",
@@ -480,7 +480,7 @@ namespace eShopTruongSport.Data.Migrations
             migrationBuilder.InsertData(
                 table: "Products",
                 columns: new[] { "Id", "DateCreated", "OriginalPrice", "Price" },
-                values: new object[] { 1, new DateTime(2021, 6, 15, 14, 44, 16, 703, DateTimeKind.Local).AddTicks(4536), 100000m, 200000m });
+                values: new object[] { 1, new DateTime(2021, 6, 19, 10, 9, 37, 873, DateTimeKind.Local).AddTicks(5769), 100000m, 200000m });
 
             migrationBuilder.InsertData(
                 table: "CategoryTranslations",

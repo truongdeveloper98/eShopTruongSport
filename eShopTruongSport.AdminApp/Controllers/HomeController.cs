@@ -1,5 +1,7 @@
 ﻿using eShopTruongSport.AdminApp.Models;
+using eShopTruongSport.Utilities.Constants;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -34,5 +36,14 @@ namespace eShopTruongSport.AdminApp.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        [HttpPost]
+        public IActionResult Language(NavigationViewModel viewModel)
+        {
+            HttpContext.Session.SetString(SystemConstants.AppSettings.DefaultLanguageID,
+                viewModel.CurrentLanguageId);
+
+            return RedirectToAction("Index");
+        }
     }
+
 }

@@ -35,7 +35,7 @@ namespace eShopTruongSport.Application.System.Users
         public async Task<ApiResult<string>> Authencate(LoginRequest request)
         {
             var user = await _userManager.FindByNameAsync(request.UserName);
-            if (user == null) return null;
+            if (user == null) return new ApiErrorResult<string>("Tài khoản không tồn tại");
 
             var result = await _signInManager.PasswordSignInAsync(user, request.Password, request.RememberMe, true);
             if (!result.Succeeded)
@@ -69,11 +69,11 @@ namespace eShopTruongSport.Application.System.Users
             {
                 return new ApiErrorResult<bool>("User không tồn tại");
             }
-          var resulr =  await _userManager.DeleteAsync(user);
-            if(resulr.Succeeded)
-            return new ApiSuccessResult<bool>();
+            var reult = await _userManager.DeleteAsync(user);
+            if (reult.Succeeded)
+                return new ApiSuccessResult<bool>();
 
-            return new ApiErrorResult<bool>("Xóa Không Thành Công");
+            return new ApiErrorResult<bool>("Xóa không thành công");
         }
 
         public async Task<ApiResult<UserVm>> GetById(Guid id)
@@ -83,6 +83,7 @@ namespace eShopTruongSport.Application.System.Users
             {
                 return new ApiErrorResult<UserVm>("User không tồn tại");
             }
+            var roles = await _userManager.GetRolesAsync(user);
             var userVm = new UserVm()
             {
                 Email = user.Email,
@@ -90,8 +91,9 @@ namespace eShopTruongSport.Application.System.Users
                 FirstName = user.FirstName,
                 Dob = user.Dob,
                 Id = user.Id,
+                LastName = user.LastName,
                 UserName = user.UserName,
-                LastName = user.LastName
+                Roles = roles
             };
             return new ApiSuccessResult<UserVm>(userVm);
         }
@@ -160,26 +162,6 @@ namespace eShopTruongSport.Application.System.Users
             return new ApiErrorResult<bool>("Đăng ký không thành công");
         }
 
-        public async Task<ApiResult<bool>> Update(Guid id, UserUpdateRequest request)
-        {
-            if (await _userManager.Users.AnyAsync(x => x.Email == request.Email && x.Id != id))
-            {
-                return new ApiErrorResult<bool>("Emai đã tồn tại");
-            }
-            var user = await _userManager.FindByIdAsync(id.ToString());
-            user.Dob = request.Dob;
-            user.Email = request.Email;
-            user.FirstName = request.FirstName;
-            user.LastName = request.LastName;
-            user.PhoneNumber = request.PhoneNumber;
-
-            var result = await _userManager.UpdateAsync(user);
-            if (result.Succeeded)
-            {
-                return new ApiSuccessResult<bool>();
-            }
-            return new ApiErrorResult<bool>("Cập nhật không thành công");
-        }
         public async Task<ApiResult<bool>> RoleAssign(Guid id, RoleAssignRequest request)
         {
             var user = await _userManager.FindByIdAsync(id.ToString());
@@ -207,6 +189,27 @@ namespace eShopTruongSport.Application.System.Users
             }
 
             return new ApiSuccessResult<bool>();
+        }
+
+        public async Task<ApiResult<bool>> Update(Guid id, UserUpdateRequest request)
+        {
+            if (await _userManager.Users.AnyAsync(x => x.Email == request.Email && x.Id != id))
+            {
+                return new ApiErrorResult<bool>("Emai đã tồn tại");
+            }
+            var user = await _userManager.FindByIdAsync(id.ToString());
+            user.Dob = request.Dob;
+            user.Email = request.Email;
+            user.FirstName = request.FirstName;
+            user.LastName = request.LastName;
+            user.PhoneNumber = request.PhoneNumber;
+
+            var result = await _userManager.UpdateAsync(user);
+            if (result.Succeeded)
+            {
+                return new ApiSuccessResult<bool>();
+            }
+            return new ApiErrorResult<bool>("Cập nhật không thành công");
         }
     }
 }

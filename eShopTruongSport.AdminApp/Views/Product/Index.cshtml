@@ -1,12 +1,12 @@
 ﻿@using eShopTruongSport.ViewModels.Common;
-@model PagedResult<eShopTruongSport.ViewModels.System.Users.UserVm>
+@model PagedResult<eShopTruongSport.ViewModels.Catalog.Products.ProductVm>
 
 @{
-    ViewData["Title"] = "List User";
+    ViewData["Title"] = "List Product";
     //Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @section scripts
-{ 
+{
     <script>
         setTimeout(function (){
         $('#msgAlert').fadeOut('slow');
@@ -15,26 +15,30 @@
 }
 <div class="container-fluid">
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">List Users</h1>
+    <h1 class="h3 mb-2 text-gray-800">List Products</h1>
     <div class="row">
         <div class="col-md-6 col-xs-12">
-            <a class="btn btn-success" asp-action="Create" asp-controller="User">Create User</a>
+            <a class="btn btn-success" asp-action="Create" asp-controller="User">Create Product</a>
         </div>
         <div class="col-md-6 col-xs-12">
-            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" asp-action="Index" asp-controller="User" method="get">
+            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search" asp-action="Index" asp-controller="Product" method="get">
                 <div class="input-group">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                             <input type="text" name="Keyword" value="@ViewBag.Keyword" class="form-control bg-light border-0 small" placeholder="Search for..."
                                    aria-label="Search" aria-describedby="basic-addon2">
                         </div>
-                       
-                        <div class="cold-md-6">
+                        <div class="col-md-6">
+                            <select name="categoryId" asp-items="@ViewBag.Categories">
+                                <option>--Chọn danh mục---</option>
+                            </select>
+                        </div>
+                        <div class="cold-md-3">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="submit">
                                     <i class="fas fa-search fa-sm"></i>
                                 </button>
-                                <button style="margin-left:10px;" class="btn btn-primary" onclick="window.location.href= '/User/Index'" type="submit">
+                                <button style="margin-left:10px;" class="btn btn-primary" onclick="window.location.href= '/Product/Index'" type="submit">
                                     Reset
                                 </button>
                             </div>
@@ -61,20 +65,21 @@
                     <thead>
                         <tr>
                             <th>
-                                FirstName
+                                Mã SP
                             </th>
                             <th>
-                                LastName
+                                Tên
                             </th>
                             <th>
-                                PhoneNumber
+                                Giá nhập
                             </th>
                             <th>
-                                UserName
+                                Giá bán
                             </th>
                             <th>
-                                Email
+                                Số lượng tồn
                             </th>
+
                             <th></th>
                         </tr>
                     </thead>
@@ -83,25 +88,25 @@
                         {
                             <tr>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.FirstName)
+                                    @Html.DisplayFor(modelItem => item.Id)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.LastName)
+                                    @Html.DisplayFor(modelItem => item.Name)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                                    @Html.DisplayFor(modelItem => item.OriginalPrice)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.UserName)
+                                    @Html.DisplayFor(modelItem => item.Price)
                                 </td>
                                 <td>
-                                    @Html.DisplayFor(modelItem => item.Email)
+                                    @Html.DisplayFor(modelItem => item.Stock)
                                 </td>
+
                                 <td>
                                     @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
                                     @Html.ActionLink("Details", "Details", new { id = item.Id }) |
                                     @Html.ActionLink("Delete", "Delete", new { id = item.Id }) |
-                                    @Html.ActionLink("RoleAssign", "RoleAssign", new { id = item.Id })
                                 </td>
                             </tr>
                         }

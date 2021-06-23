@@ -1,5 +1,8 @@
+using eShopTruongSport.Application.Catalog.Categories;
 using eShopTruongSport.Application.Catalog.Products;
 using eShopTruongSport.Application.Common;
+using eShopTruongSport.Application.System.Languages;
+using eShopTruongSport.Application.System.Roles;
 using eShopTruongSport.Application.System.Users;
 using eShopTruongSport.Data.EF;
 using eShopTruongSport.Data.Entities;
@@ -44,10 +47,17 @@ namespace eShopTruongSport.BackendApi
             services.AddTransient<IStorageService, FileStorageService>();
 
             services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<ICategoryService, CategoryService>();
+
+
             services.AddTransient<UserManager<AppUser>, UserManager<AppUser>>();
             services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
             services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();
+            services.AddTransient<ILanguageService, LanguageService>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IRoleService, RoleService>();
+            
+           
             //services.AddTransient<IValidator<LoginRequest>, LoginRequestValidator>();
             //services.AddTransient<IValidator<RegisterRequest>, RegisterRequestValidator>();
 
