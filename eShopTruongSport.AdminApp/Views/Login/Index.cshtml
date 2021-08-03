@@ -41,13 +41,16 @@
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6 d-none d-lg-block ">
+                                <img src="/img/truongsport.png" alt="Alternate Text" style="padding-top : 35px; padding-left:10px; height: 535px" />
+                            </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">TruongSport Online Shop Login!</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Admin Login Page !!!</h1>
                                     </div>
                                     <form class="user" asp-action="Index" asp-controller="Login" method="post">
+                                        <div asp-validation-summary="All" class="text-danger"></div>
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user"
                                                    asp-for="UserName" placeholder="Enter Email Address...">

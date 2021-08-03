@@ -1,4 +1,5 @@
-﻿using eShopTruongSport.ViewModels.Catalog.ProductImages;
+﻿using eShopTruongSport.ViewModels.Catalog.Categories;
+using eShopTruongSport.ViewModels.Catalog.ProductImages;
 using eShopTruongSport.ViewModels.Catalog.Products;
 using eShopTruongSport.ViewModels.Common;
 using Microsoft.AspNetCore.Http;
@@ -9,6 +10,8 @@ namespace eShopTruongSport.Application.Catalog.Products
 {
     public interface IProductService
     {
+        Task<List<ProductVm>> GetLatestProducts(string languageId, int take);
+        Task<ApiResult<bool>> CategoryAssign(int id, CategoryAssignRequest request);
         Task<int> Create(ProductCreateRequest request);
 
         Task<int> Update(ProductUpdateRequest request);
@@ -36,5 +39,6 @@ namespace eShopTruongSport.Application.Catalog.Products
         Task<List<ProductImageViewModel>> GetListImages(int productId);
 
         Task<PagedResult<ProductVm>> GetAllByCategoryId(string languageId, GetPublicProductPagingRequest request);
+        Task<List<ProductVm>> GetFeaturedProducts(string languageId, int take);
     }
 }

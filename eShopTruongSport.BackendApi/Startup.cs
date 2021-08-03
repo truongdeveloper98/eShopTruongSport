@@ -1,13 +1,16 @@
 using eShopTruongSport.Application.Catalog.Categories;
 using eShopTruongSport.Application.Catalog.Products;
 using eShopTruongSport.Application.Common;
+using eShopTruongSport.Application.Sales;
 using eShopTruongSport.Application.System.Languages;
 using eShopTruongSport.Application.System.Roles;
 using eShopTruongSport.Application.System.Users;
+using eShopTruongSport.Application.Utilities.Slides;
 using eShopTruongSport.Data.EF;
 using eShopTruongSport.Data.Entities;
 using eShopTruongSport.Utilities.Constants;
 using eShopTruongSport.ViewModels.System.Users;
+using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -35,7 +38,6 @@ namespace eShopTruongSport.BackendApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-           
             services.AddDbContext<EShopDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString(SystemConstants.MainConnectionString)));
 
@@ -48,16 +50,16 @@ namespace eShopTruongSport.BackendApi
 
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<ICategoryService, CategoryService>();
-
-
+            services.AddTransient<IOrderService, OrderService>();
             services.AddTransient<UserManager<AppUser>, UserManager<AppUser>>();
             services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
             services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();
             services.AddTransient<ILanguageService, LanguageService>();
-            services.AddTransient<IUserService, UserService>();
+
             services.AddTransient<IRoleService, RoleService>();
-            
-           
+            services.AddTransient<IUserService, UserService>();
+            services.AddTransient<ISlideService, SlideService>();
+
             //services.AddTransient<IValidator<LoginRequest>, LoginRequestValidator>();
             //services.AddTransient<IValidator<RegisterRequest>, RegisterRequestValidator>();
 

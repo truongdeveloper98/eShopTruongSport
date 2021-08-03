@@ -37,6 +37,21 @@ namespace eShopTruongSport.BackendApi.Controllers
             }
             return Ok(result);
         }
+        [HttpPost("authenticateweb")]
+        [AllowAnonymous]
+        public async Task<IActionResult> AuthenticateWeb([FromBody] LoginRequest request)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var result = await _userService.AuthencateWeb(request);
+
+            if (string.IsNullOrEmpty(result.ObjResult))
+            {
+                return BadRequest(result);
+            }
+            return Ok(result);
+        }
 
         [HttpPost]
         [AllowAnonymous]
@@ -94,6 +109,12 @@ namespace eShopTruongSport.BackendApi.Controllers
         public async Task<IActionResult> GetById(Guid id)
         {
             var user = await _userService.GetById(id);
+            return Ok(user);
+        }
+        [HttpGet("getrole/{username}")]
+        public async Task<IActionResult> GetRoles(string username)
+        {
+            var user = await _userService.GetRoles(username);
             return Ok(user);
         }
 

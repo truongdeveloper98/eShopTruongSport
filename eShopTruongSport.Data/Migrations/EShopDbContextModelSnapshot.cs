@@ -180,7 +180,7 @@ namespace eShopTruongSport.Data.Migrations
                         new
                         {
                             Id = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc"),
-                            ConcurrencyStamp = "97d5539e-d42e-41fb-898d-c72bbb75b549",
+                            ConcurrencyStamp = "75bfb94b-9fc3-4ae1-9fbc-dbb16fd2b5c5",
                             Description = "Administrator role",
                             Name = "admin",
                             NormalizedName = "admin"
@@ -257,7 +257,7 @@ namespace eShopTruongSport.Data.Migrations
                         {
                             Id = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f9c6bce8-a340-4587-9010-a4d2c8310264",
+                            ConcurrencyStamp = "d027216c-38dd-4370-9867-53da2eba4b20",
                             Dob = new DateTime(2020, 1, 31, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "truongcntt98@gmail.com",
                             EmailConfirmed = true,
@@ -266,7 +266,7 @@ namespace eShopTruongSport.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "truongcntt98@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAELi/9950FkLWskyPHQ5GpHL1n4KIjZDakmQRSuTcIBV9xG/td5bSm+0osFT3F/E2EA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEFFfXoYQ7X/NH45AG8M+R5kzd0g2qU7FufSAOJem3pcR6ZsWFIsJNKoJlKonuIJa4Q==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -425,7 +425,7 @@ namespace eShopTruongSport.Data.Migrations
                         {
                             Id = 1,
                             CategoryId = 1,
-                            LanguageId = "vi-VN",
+                            LanguageId = "vi",
                             Name = "Giày Đá Bóng",
                             SeoAlias = "giay-da-bong",
                             SeoDescription = "Sản phẩm giày đá bóng",
@@ -435,7 +435,7 @@ namespace eShopTruongSport.Data.Migrations
                         {
                             Id = 2,
                             CategoryId = 1,
-                            LanguageId = "en-US",
+                            LanguageId = "en",
                             Name = "soccer shoes",
                             SeoAlias = "soccer-shoes",
                             SeoDescription = "The soccer shoes",
@@ -445,7 +445,7 @@ namespace eShopTruongSport.Data.Migrations
                         {
                             Id = 3,
                             CategoryId = 2,
-                            LanguageId = "vi-VN",
+                            LanguageId = "vi",
                             Name = "Giày sân cỏ nhân tạo",
                             SeoAlias = "giay-san-co-nhan-tao",
                             SeoDescription = "Sản phẩm giày đá bóng sân cỏ nhân tạo",
@@ -455,7 +455,7 @@ namespace eShopTruongSport.Data.Migrations
                         {
                             Id = 4,
                             CategoryId = 2,
-                            LanguageId = "en-US",
+                            LanguageId = "en",
                             Name = "Artificial turf shoes",
                             SeoAlias = "artificial-turf-shoes",
                             SeoDescription = "Products football shoes artificial turf",
@@ -465,7 +465,7 @@ namespace eShopTruongSport.Data.Migrations
                         {
                             Id = 5,
                             CategoryId = 3,
-                            LanguageId = "vi-VN",
+                            LanguageId = "vi",
                             Name = "Giày sân cỏ tự nhiên",
                             SeoAlias = "giay-san-co-tu-nhien",
                             SeoDescription = "Sản phẩm giày đá bóng sân cỏ tự nhiên",
@@ -475,7 +475,7 @@ namespace eShopTruongSport.Data.Migrations
                         {
                             Id = 6,
                             CategoryId = 3,
-                            LanguageId = "en-US",
+                            LanguageId = "en",
                             Name = "Natural turf shoes",
                             SeoAlias = "natural-turf-shoes",
                             SeoDescription = "Natural turf soccer shoes",
@@ -485,7 +485,7 @@ namespace eShopTruongSport.Data.Migrations
                         {
                             Id = 7,
                             CategoryId = 4,
-                            LanguageId = "vi-VN",
+                            LanguageId = "vi",
                             Name = "Giày TA11 sân cỏ nhân tạo",
                             SeoAlias = "giay-ta11-san-co-nhan-tao",
                             SeoDescription = "Sản phẩm giày đá bóng TA11 sân cỏ nhân tạo",
@@ -495,7 +495,7 @@ namespace eShopTruongSport.Data.Migrations
                         {
                             Id = 8,
                             CategoryId = 4,
-                            LanguageId = "en-US",
+                            LanguageId = "en",
                             Name = "TA11 artificial turf shoes",
                             SeoAlias = "artificial-turf-shoes",
                             SeoDescription = "Products TA11 football shoes artificial turf",
@@ -505,7 +505,7 @@ namespace eShopTruongSport.Data.Migrations
                         {
                             Id = 9,
                             CategoryId = 5,
-                            LanguageId = "vi-VN",
+                            LanguageId = "vi",
                             Name = "Giày TA11 sân cỏ tự nhiên",
                             SeoAlias = "giay-ta11-san-co-tu-nhien",
                             SeoDescription = "Sản phẩm giày đá bóng TA11 sân cỏ tự nhiên",
@@ -515,7 +515,7 @@ namespace eShopTruongSport.Data.Migrations
                         {
                             Id = 10,
                             CategoryId = 5,
-                            LanguageId = "en-US",
+                            LanguageId = "en",
                             Name = "TA11 shoes for natural grass",
                             SeoAlias = "TA11-shoes-for-natural-grass",
                             SeoDescription = "Products TA11 shoes for natural grass courts",
@@ -581,13 +581,13 @@ namespace eShopTruongSport.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "vi-VN",
+                            Id = "vi",
                             IsDefault = true,
                             Name = "Tiếng Việt"
                         },
                         new
                         {
-                            Id = "en-US",
+                            Id = "en",
                             IsDefault = false,
                             Name = "English"
                         });
@@ -629,7 +629,7 @@ namespace eShopTruongSport.Data.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("UserId")
+                    b.Property<Guid?>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
@@ -672,6 +672,9 @@ namespace eShopTruongSport.Data.Migrations
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool?>("IsFutured")
+                        .HasColumnType("bit");
+
                     b.Property<decimal>("OriginalPrice")
                         .HasColumnType("decimal(18,2)");
 
@@ -696,7 +699,7 @@ namespace eShopTruongSport.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2021, 6, 21, 13, 27, 21, 770, DateTimeKind.Local).AddTicks(4825),
+                            DateCreated = new DateTime(2021, 7, 30, 15, 7, 18, 584, DateTimeKind.Local).AddTicks(91),
                             OriginalPrice = 100000m,
                             Price = 200000m,
                             Stock = 0,
@@ -821,7 +824,7 @@ namespace eShopTruongSport.Data.Migrations
                             Id = 1,
                             Description = "Áo t-shirt trắng thể thao nam Kamito",
                             Details = "Áo t-shirt trắng thể thao nam Kamito",
-                            LanguageId = "vi-VN",
+                            LanguageId = "vi",
                             Name = "Áo t-shirt trắng thể thao nam Kamito",
                             ProductId = 1,
                             SeoAlias = "ao-t-shirt-the-thao-kamito",
@@ -833,7 +836,7 @@ namespace eShopTruongSport.Data.Migrations
                             Id = 2,
                             Description = "kamito-men-sport-t-shirt",
                             Details = "kamito-men-sport-t-shirt",
-                            LanguageId = "en-US",
+                            LanguageId = "en",
                             Name = "Kamito Men sport T-Shirt",
                             ProductId = 1,
                             SeoAlias = "kamito-men-sport-t-shirt",
@@ -882,6 +885,78 @@ namespace eShopTruongSport.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Promotions");
+                });
+
+            modelBuilder.Entity("eShopTruongSport.Data.Entities.Slide", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
+                        .HasAnnotation("SqlServer:IdentitySeed", 1)
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(200)")
+                        .HasMaxLength(200);
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(200)")
+                        .HasMaxLength(200);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(200)")
+                        .HasMaxLength(200);
+
+                    b.Property<int>("SortOrder")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(200)")
+                        .HasMaxLength(200);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Slides");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Description = "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.",
+                            Image = "/themes/images/products/p3.jpg",
+                            Name = "Second Thumbnail label",
+                            SortOrder = 1,
+                            Status = 1,
+                            Url = "#"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Description = "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.",
+                            Image = "/themes/images/products/p2.jpg",
+                            Name = "Second Thumbnail label",
+                            SortOrder = 2,
+                            Status = 1,
+                            Url = "#"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Description = "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.",
+                            Image = "/themes/images/products/p1.jpg",
+                            Name = "Second Thumbnail label",
+                            SortOrder = 3,
+                            Status = 1,
+                            Url = "#"
+                        });
                 });
 
             modelBuilder.Entity("eShopTruongSport.Data.Entities.Transaction", b =>
@@ -961,9 +1036,7 @@ namespace eShopTruongSport.Data.Migrations
                 {
                     b.HasOne("eShopTruongSport.Data.Entities.AppUser", "AppUser")
                         .WithMany("Orders")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("eShopTruongSport.Data.Entities.OrderDetail", b =>

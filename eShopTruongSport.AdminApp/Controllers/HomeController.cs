@@ -15,7 +15,7 @@ namespace eShopTruongSport.AdminApp.Controllers
     public class HomeController : BaseController
     {
         private readonly ILogger<HomeController> _logger;
-       
+
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -23,6 +23,7 @@ namespace eShopTruongSport.AdminApp.Controllers
 
         public IActionResult Index()
         {
+            var user = User.Identity.Name;
             return View();
         }
 
@@ -36,13 +37,14 @@ namespace eShopTruongSport.AdminApp.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
         [HttpPost]
         public IActionResult Language(NavigationViewModel viewModel)
         {
             HttpContext.Session.SetString(SystemConstants.AppSettings.DefaultLanguageID,
                 viewModel.CurrentLanguageId);
 
-            return RedirectToAction("Index");
+            return Redirect(viewModel.ReturnUrl);
         }
     }
 

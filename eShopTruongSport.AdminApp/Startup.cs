@@ -1,18 +1,14 @@
-using eShopTruongSport.AdminApp.Service;
+using eShopTruongSport.ApiIntegration.Services;
 using eShopTruongSport.ViewModels.System.Users;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace eShopTruongSport.AdminApp
 {
@@ -50,7 +46,9 @@ namespace eShopTruongSport.AdminApp
             services.AddTransient<IRoleApiClient, RoleApiClient>();
             services.AddTransient<ILanguageApiClient, LanguageApiClient>();
             services.AddTransient<IProductApiClient, ProductApiClient>();
+            services.AddTransient<IOrderApiClient, OrderApiClient>();
             services.AddTransient<ICategoryApiClient, CategoryApiClient>();
+            services.AddTransient<ISlideApiClient, SlideApiClient>();
 
             IMvcBuilder builder = services.AddRazorPages();
             var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
@@ -79,8 +77,8 @@ namespace eShopTruongSport.AdminApp
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-
             app.UseAuthentication();
+
             app.UseRouting();
 
             app.UseAuthorization();

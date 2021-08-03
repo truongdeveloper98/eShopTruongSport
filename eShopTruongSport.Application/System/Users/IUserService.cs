@@ -10,6 +10,7 @@ namespace eShopTruongSport.Application.System.Users
     public interface IUserService
     {
         Task<ApiResult<string>> Authencate(LoginRequest request);
+        Task<ApiResult<string>> AuthencateWeb(LoginRequest request);
 
         Task<ApiResult<bool>> Register(RegisterRequest request);
 
@@ -20,5 +21,6 @@ namespace eShopTruongSport.Application.System.Users
         Task<ApiResult<UserVm>> GetById(Guid id);
         Task<ApiResult<bool>> RoleAssign(Guid id, RoleAssignRequest request);
         Task<ApiResult<bool>> Delete(Guid id);
+        Task<List<string>> GetRoles(string username);
     }
 }

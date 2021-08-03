@@ -11,6 +11,7 @@ namespace eShopTruongSport.ViewModels.Catalog.Products
         public string Name { set; get; }
         public string Description { set; get; }
         public string Details { set; get; }
+        public bool? IsFutured { get; set; }
         public string SeoDescription { set; get; }
         public string SeoTitle { set; get; }
 

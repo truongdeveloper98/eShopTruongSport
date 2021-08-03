@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using eShopTruongSport.AdminApp.Service;
+using eShopTruongSport.ApiIntegration.Services;
 using eShopTruongSport.Utilities.Constants;
 using eShopTruongSport.ViewModels.System.Users;
 using Microsoft.AspNetCore.Authentication;
@@ -40,9 +41,12 @@ namespace eShopTruongSport.AdminApp.Controllers
         {
             if (!ModelState.IsValid)
                 return View(ModelState);
-
             var result = await _userApiClient.Authenticate(request);
-
+            if (result.ObjResult == null)
+            {
+                ModelState.AddModelError("", result.Message);
+                return View();
+            }
             var userPrincipal = this.ValidateToken(result.ObjResult);
             var authProperties = new AuthenticationProperties
             {

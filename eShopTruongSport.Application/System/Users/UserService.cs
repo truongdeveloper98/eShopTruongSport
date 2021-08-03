@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
+using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
@@ -36,8 +37,42 @@ namespace eShopTruongSport.Application.System.Users
         {
             var user = await _userManager.FindByNameAsync(request.UserName);
             if (user == null) return new ApiErrorResult<string>("Tài khoản không tồn tại");
-
             var result = await _signInManager.PasswordSignInAsync(user, request.Password, request.RememberMe, true);
+            var roles = await _userManager.GetRolesAsync(user);
+            if(roles.Contains("admin") == false)
+            {
+               return new ApiErrorResult<string>("Tài khoản của bạn không phải admin");
+            }
+            if (!result.Succeeded)
+            {
+                return new ApiErrorResult<string>("Đăng nhập không đúng");
+            }
+            var claims = new[]
+            {
+                new Claim(ClaimTypes.Email,user.Email),
+                new Claim(ClaimTypes.GivenName,user.FirstName),
+                new Claim(ClaimTypes.Role, string.Join(";",roles)),
+                new Claim(ClaimTypes.Name, request.UserName)
+            };
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:Key"]));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            var token = new JwtSecurityToken(_config["Tokens:Issuer"],
+                _config["Tokens:Issuer"],
+                claims,
+                expires: DateTime.Now.AddHours(3),
+                signingCredentials: creds);
+
+
+            return new ApiSuccessResult<string>(new JwtSecurityTokenHandler().WriteToken(token));
+        }
+
+        public async Task<ApiResult<string>> AuthencateWeb(LoginRequest request)
+        {
+            var user = await _userManager.FindByNameAsync(request.UserName);
+            if (user == null) return new ApiErrorResult<string>("Tài khoản không tồn tại");
+            var result = await _signInManager.PasswordSignInAsync(user, request.Password, request.RememberMe, true);
+
             if (!result.Succeeded)
             {
                 return new ApiErrorResult<string>("Đăng nhập không đúng");
@@ -58,6 +93,7 @@ namespace eShopTruongSport.Application.System.Users
                 claims,
                 expires: DateTime.Now.AddHours(3),
                 signingCredentials: creds);
+
 
             return new ApiSuccessResult<string>(new JwtSecurityTokenHandler().WriteToken(token));
         }
@@ -97,7 +133,12 @@ namespace eShopTruongSport.Application.System.Users
             };
             return new ApiSuccessResult<UserVm>(userVm);
         }
-
+        public async Task<List<string>> GetRoles(string username)
+        {
+            var user = await _userManager.FindByNameAsync(username);
+            var roles = await _userManager.GetRolesAsync(user);
+            return (List<string>)roles;
+        }
         public async Task<ApiResult<PagedResult<UserVm>>> GetUsersPaging(GetUserPagingRequest request)
         {
             var query = _userManager.Users;

@@ -161,6 +161,7 @@
         </li>
         <li class="nav-item dropdown no-arrow mx-1">
             <form style="margin-top: 15px;" action="/home/language" method="post" id="frmChangeLanguage">
+                <input  type="hidden" name="ReturnUrl"  value="@Context.Request.Path"/>
                 <select class="form-control" onchange="this.form.submit()" asp-for="CurrentLanguageId" asp-items="@(new SelectList(Model.Languages,"Id","Name", Model.CurrentLanguageId))"></select>
             </form>
         </li>

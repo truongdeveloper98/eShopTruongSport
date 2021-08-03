@@ -18,8 +18,8 @@ namespace eShopTruongSport.Data.Extensions
                new AppConfig() { Key = "HomeDescription", Value = "This is description of eShopTruongSport" }
                );
             modelBuilder.Entity<Language>().HasData(
-                new Language() { Id = "vi-VN", Name = "Tiếng Việt", IsDefault = true },
-                new Language() { Id = "en-US", Name = "English", IsDefault = false });
+                new Language() { Id = "vi", Name = "Tiếng Việt", IsDefault = true },
+                new Language() { Id = "en", Name = "English", IsDefault = false });
 
             modelBuilder.Entity<Category>().HasData(
                 new Category()
@@ -64,16 +64,16 @@ namespace eShopTruongSport.Data.Extensions
                   });
 
             modelBuilder.Entity<CategoryTranslation>().HasData(
-                  new CategoryTranslation() { Id = 1, CategoryId = 1, Name = "Giày Đá Bóng", LanguageId = "vi-VN", SeoAlias = "giay-da-bong", SeoDescription = "Sản phẩm giày đá bóng", SeoTitle = "Sản phẩm giày đá bóng" },
-                  new CategoryTranslation() { Id = 2, CategoryId = 1, Name = "soccer shoes", LanguageId = "en-US", SeoAlias = "soccer-shoes", SeoDescription = "The soccer shoes", SeoTitle = "The soccer shoes" },
-                  new CategoryTranslation() { Id = 3, CategoryId = 2, Name = "Giày sân cỏ nhân tạo", LanguageId = "vi-VN", SeoAlias = "giay-san-co-nhan-tao", SeoDescription = "Sản phẩm giày đá bóng sân cỏ nhân tạo", SeoTitle = "Sản phẩm giày đá bóng sân cỏ nhân tạo" },
-                  new CategoryTranslation() { Id = 4, CategoryId = 2, Name = "Artificial turf shoes", LanguageId = "en-US", SeoAlias = "artificial-turf-shoes", SeoDescription = "Products football shoes artificial turf", SeoTitle = "Products football shoes artificial turf" },
-                  new CategoryTranslation() { Id = 5, CategoryId = 3, Name = "Giày sân cỏ tự nhiên", LanguageId = "vi-VN", SeoAlias = "giay-san-co-tu-nhien", SeoDescription = "Sản phẩm giày đá bóng sân cỏ tự nhiên", SeoTitle = "Sản phẩm giày đá bóng sân cỏ tự nhiên" },
-                  new CategoryTranslation() { Id = 6, CategoryId = 3, Name = "Natural turf shoes", LanguageId = "en-US", SeoAlias = "natural-turf-shoes", SeoDescription = "Natural turf soccer shoes", SeoTitle = "Natural turf soccer shoes" },
-                  new CategoryTranslation() { Id = 7, CategoryId = 4, Name = "Giày TA11 sân cỏ nhân tạo", LanguageId = "vi-VN", SeoAlias = "giay-ta11-san-co-nhan-tao", SeoDescription = "Sản phẩm giày đá bóng TA11 sân cỏ nhân tạo", SeoTitle = "Sản phẩm giày đá bóng TA11 sân cỏ nhân tạo" },
-                  new CategoryTranslation() { Id = 8, CategoryId = 4, Name = "TA11 artificial turf shoes", LanguageId = "en-US", SeoAlias = "artificial-turf-shoes", SeoDescription = "Products TA11 football shoes artificial turf", SeoTitle = "Products TA11 football shoes artificial turf" },
-                  new CategoryTranslation() { Id = 9, CategoryId = 5, Name = "Giày TA11 sân cỏ tự nhiên", LanguageId = "vi-VN", SeoAlias = "giay-ta11-san-co-tu-nhien", SeoDescription = "Sản phẩm giày đá bóng TA11 sân cỏ tự nhiên", SeoTitle = "Sản phẩm giày đá bóng TA11 sân cỏ tự nhiên" },
-                  new CategoryTranslation() { Id = 10, CategoryId = 5, Name = "TA11 shoes for natural grass", LanguageId = "en-US", SeoAlias = "TA11-shoes-for-natural-grass", SeoDescription = "Products TA11 shoes for natural grass courts", SeoTitle = "Products TA11 shoes for natural grass courts" }
+                  new CategoryTranslation() { Id = 1, CategoryId = 1, Name = "Giày Đá Bóng", LanguageId = "vi", SeoAlias = "giay-da-bong", SeoDescription = "Sản phẩm giày đá bóng", SeoTitle = "Sản phẩm giày đá bóng" },
+                  new CategoryTranslation() { Id = 2, CategoryId = 1, Name = "soccer shoes", LanguageId = "en", SeoAlias = "soccer-shoes", SeoDescription = "The soccer shoes", SeoTitle = "The soccer shoes" },
+                  new CategoryTranslation() { Id = 3, CategoryId = 2, Name = "Giày sân cỏ nhân tạo", LanguageId = "vi", SeoAlias = "giay-san-co-nhan-tao", SeoDescription = "Sản phẩm giày đá bóng sân cỏ nhân tạo", SeoTitle = "Sản phẩm giày đá bóng sân cỏ nhân tạo" },
+                  new CategoryTranslation() { Id = 4, CategoryId = 2, Name = "Artificial turf shoes", LanguageId = "en", SeoAlias = "artificial-turf-shoes", SeoDescription = "Products football shoes artificial turf", SeoTitle = "Products football shoes artificial turf" },
+                  new CategoryTranslation() { Id = 5, CategoryId = 3, Name = "Giày sân cỏ tự nhiên", LanguageId = "vi", SeoAlias = "giay-san-co-tu-nhien", SeoDescription = "Sản phẩm giày đá bóng sân cỏ tự nhiên", SeoTitle = "Sản phẩm giày đá bóng sân cỏ tự nhiên" },
+                  new CategoryTranslation() { Id = 6, CategoryId = 3, Name = "Natural turf shoes", LanguageId = "en", SeoAlias = "natural-turf-shoes", SeoDescription = "Natural turf soccer shoes", SeoTitle = "Natural turf soccer shoes" },
+                  new CategoryTranslation() { Id = 7, CategoryId = 4, Name = "Giày TA11 sân cỏ nhân tạo", LanguageId = "vi", SeoAlias = "giay-ta11-san-co-nhan-tao", SeoDescription = "Sản phẩm giày đá bóng TA11 sân cỏ nhân tạo", SeoTitle = "Sản phẩm giày đá bóng TA11 sân cỏ nhân tạo" },
+                  new CategoryTranslation() { Id = 8, CategoryId = 4, Name = "TA11 artificial turf shoes", LanguageId = "en", SeoAlias = "artificial-turf-shoes", SeoDescription = "Products TA11 football shoes artificial turf", SeoTitle = "Products TA11 football shoes artificial turf" },
+                  new CategoryTranslation() { Id = 9, CategoryId = 5, Name = "Giày TA11 sân cỏ tự nhiên", LanguageId = "vi", SeoAlias = "giay-ta11-san-co-tu-nhien", SeoDescription = "Sản phẩm giày đá bóng TA11 sân cỏ tự nhiên", SeoTitle = "Sản phẩm giày đá bóng TA11 sân cỏ tự nhiên" },
+                  new CategoryTranslation() { Id = 10, CategoryId = 5, Name = "TA11 shoes for natural grass", LanguageId = "en", SeoAlias = "TA11-shoes-for-natural-grass", SeoDescription = "Products TA11 shoes for natural grass courts", SeoTitle = "Products TA11 shoes for natural grass courts" }
                     );
 
             modelBuilder.Entity<Product>().HasData(
@@ -92,7 +92,7 @@ namespace eShopTruongSport.Data.Extensions
                      Id = 1,
                      ProductId = 1,
                      Name = "Áo t-shirt trắng thể thao nam Kamito",
-                     LanguageId = "vi-VN",
+                     LanguageId = "vi",
                      SeoAlias = "ao-t-shirt-the-thao-kamito",
                      SeoDescription = "Áo t-shirt trắng thể thao nam Kamito",
                      SeoTitle = "Áo t-shirt trắng thể thao nam Kamito",
@@ -104,7 +104,7 @@ namespace eShopTruongSport.Data.Extensions
                         Id = 2,
                         ProductId = 1,
                         Name = "Kamito Men sport T-Shirt",
-                        LanguageId = "en-US",
+                        LanguageId = "en",
                         SeoAlias = "kamito-men-sport-t-shirt",
                         SeoDescription = "kamito-men-sport-t-shirt",
                         SeoTitle = "kamito-men-sport-t-shirt",
@@ -147,6 +147,11 @@ namespace eShopTruongSport.Data.Extensions
                 RoleId = roleId,
                 UserId = adminId
             });
+            modelBuilder.Entity<Slide>().HasData(
+             new Slide() { Id = 1, Name = "Second Thumbnail label", Description = "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.", SortOrder = 1, Url = "#", Image = "/themes/images/products/p3.jpg", Status = Status.Active },
+             new Slide() { Id = 2, Name = "Second Thumbnail label", Description = "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.", SortOrder = 2, Url = "#", Image = "/themes/images/products/p2.jpg", Status = Status.Active },
+             new Slide() { Id = 3, Name = "Second Thumbnail label", Description = "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.", SortOrder = 3, Url = "#", Image = "/themes/images/products/p1.jpg", Status = Status.Active }
+             );
         }
 
         

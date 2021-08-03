@@ -1,11 +1,8 @@
 ﻿using eShopTruongSport.AdminApp.Models;
-using eShopTruongSport.AdminApp.Service;
+using eShopTruongSport.ApiIntegration.Services;
 using eShopTruongSport.Utilities.Constants;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace eShopTruongSport.AdminApp.Views.Shared.Components

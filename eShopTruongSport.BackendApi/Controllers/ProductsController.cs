@@ -1,4 +1,5 @@
 ﻿using eShopTruongSport.Application.Catalog.Products;
+using eShopTruongSport.ViewModels.Catalog.Categories;
 using eShopTruongSport.ViewModels.Catalog.ProductImages;
 using eShopTruongSport.ViewModels.Catalog.Products;
 using Microsoft.AspNetCore.Authorization;
@@ -7,10 +8,8 @@ using System.Threading.Tasks;
 
 namespace eShopTruongSport.BackendApi.Controllers
 {
-    //api/products
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
     public class ProductsController : ControllerBase
     {
         private readonly IProductService _productService;
@@ -37,8 +36,25 @@ namespace eShopTruongSport.BackendApi.Controllers
             return Ok(product);
         }
 
+        [HttpGet("featured/{languageId}/{take}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetFeaturedProducts(int take, string languageId)
+        {
+            var products = await _productService.GetFeaturedProducts(languageId, take);
+            return Ok(products);
+        }
+
+        [HttpGet("latest/{languageId}/{take}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> GetLatestProducts(int take, string languageId)
+        {
+            var products = await _productService.GetLatestProducts(languageId, take);
+            return Ok(products);
+        }
+
         [HttpPost]
         [Consumes("multipart/form-data")]
+        [Authorize]
         public async Task<IActionResult> Create([FromForm] ProductCreateRequest request)
         {
             if (!ModelState.IsValid)
@@ -54,13 +70,16 @@ namespace eShopTruongSport.BackendApi.Controllers
             return CreatedAtAction(nameof(GetById), new { id = productId }, product);
         }
 
-        [HttpPut]
-        public async Task<IActionResult> Update([FromForm] ProductUpdateRequest request)
+        [HttpPut("{productId}")]
+        [Consumes("multipart/form-data")]
+        [Authorize]
+        public async Task<IActionResult> Update([FromRoute] int productId, [FromForm] ProductUpdateRequest request)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+            request.Id = productId;
             var affectedResult = await _productService.Update(request);
             if (affectedResult == 0)
                 return BadRequest();
@@ -68,6 +87,7 @@ namespace eShopTruongSport.BackendApi.Controllers
         }
 
         [HttpDelete("{productId}")]
+        [Authorize]
         public async Task<IActionResult> Delete(int productId)
         {
             var affectedResult = await _productService.Delete(productId);
@@ -76,10 +96,20 @@ namespace eShopTruongSport.BackendApi.Controllers
             return Ok();
         }
 
-        [HttpPatch("{productId}/{newPrice}")]
+        [HttpPatch("UpdatePrice/{productId}")]
+        [AllowAnonymous]
         public async Task<IActionResult> UpdatePrice(int productId, decimal newPrice)
         {
             var isSuccessful = await _productService.UpdatePrice(productId, newPrice);
+            if (isSuccessful)
+                return Ok();
+
+            return BadRequest();
+        }
+        [HttpPatch("updateStock/{productId}")]
+        public async Task<IActionResult> UpdateStock([FromRoute] int productId, [FromForm] int newStock)
+        {
+            var isSuccessful = await _productService.UpdateStock(productId, newStock);
             if (isSuccessful)
                 return Ok();
 
@@ -104,6 +134,7 @@ namespace eShopTruongSport.BackendApi.Controllers
         }
 
         [HttpPut("{productId}/images/{imageId}")]
+        [Authorize]
         public async Task<IActionResult> UpdateImage(int imageId, [FromForm] ProductImageUpdateRequest request)
         {
             if (!ModelState.IsValid)
@@ -118,6 +149,7 @@ namespace eShopTruongSport.BackendApi.Controllers
         }
 
         [HttpDelete("{productId}/images/{imageId}")]
+        [Authorize]
         public async Task<IActionResult> RemoveImage(int imageId)
         {
             if (!ModelState.IsValid)
@@ -138,6 +170,21 @@ namespace eShopTruongSport.BackendApi.Controllers
             if (image == null)
                 return BadRequest("Cannot find product");
             return Ok(image);
+        }
+
+        [HttpPut("{id}/categories")]
+        [Authorize]
+        public async Task<IActionResult> CategoryAssign(int id, [FromBody] CategoryAssignRequest request)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var result = await _productService.CategoryAssign(id, request);
+            if (!result.IsSuccessed)
+            {
+                return BadRequest(result);
+            }
+            return Ok(result);
         }
     }
 }
