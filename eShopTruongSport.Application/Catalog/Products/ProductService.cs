@@ -9,6 +9,7 @@ using eShopTruongSport.ViewModels.Catalog.Products;
 using eShopTruongSport.ViewModels.Common;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -95,6 +96,7 @@ namespace eShopTruongSport.Application.Catalog.Products
                 Stock = request.Stock,
                 ViewCount = 0,
                 DateCreated = DateTime.Now,
+                IsFutured = request.IsFutured,
                 ProductTranslations = translations
             };
             //Save image
@@ -219,6 +221,7 @@ namespace eShopTruongSport.Application.Catalog.Products
                 SeoTitle = productTranslation != null ? productTranslation.SeoTitle : null,
                 Stock = product.Stock,
                 ViewCount = product.ViewCount,
+                IsFutured = product.IsFutured,
                 Categories = categories,
                 ThumbnailImage = image != null ? image.ImagePath : "no-image.jpg"
             };
@@ -277,7 +280,8 @@ namespace eShopTruongSport.Application.Catalog.Products
             && x.LanguageId == request.LanguageId);
 
             if (product == null || productTranslations == null) throw new EShopException($"Cannot find a product with id: {request.Id}");
-
+            product.IsFutured = request.IsFutured;
+            _context.Products.Update(product);
             productTranslations.Name = request.Name;
             productTranslations.SeoAlias = request.SeoAlias;
             productTranslations.SeoDescription = request.SeoDescription;

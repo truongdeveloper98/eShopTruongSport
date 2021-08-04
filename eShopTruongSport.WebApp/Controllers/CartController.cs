@@ -90,26 +90,54 @@ namespace eShopTruongSport.WebApp.Controllers
 
             var session = HttpContext.Session.GetString(SystemConstants.CartSession);
             List<CartItemViewModel> currentCart = new List<CartItemViewModel>();
+            int quantity = 1;
             if (session != null)
+            {     
                 currentCart = JsonConvert.DeserializeObject<List<CartItemViewModel>>(session);
 
-            int quantity = 1;
-            if (currentCart.Any(x => x.ProductId == id))
+         
+                if (currentCart.Any(x => x.ProductId == id))
+                {
+                    foreach (var item in currentCart)
+                    {
+                        if (item.ProductId == id)
+                        {
+                            quantity = item.Quantity + 1;
+                            item.Quantity = quantity;
+                        }
+                    }
+                }
+                else
+                {
+                    var cartItem = new CartItemViewModel()
+                    {
+                        ProductId = id,
+                        Description = product.Description,
+                        Image = product.ThumbnailImage,
+                        Name = product.Name,
+                        Price = product.Price,
+                        Quantity = quantity
+                    };
+                    currentCart.Add(cartItem);
+                }
+            }
+            else
             {
-                quantity = currentCart.First(x => x.ProductId == id).Quantity + 1;
+                var item = new CartItemViewModel() 
+                {
+                    ProductId = id,
+                    Description = product.Description,
+                    Image = product.ThumbnailImage,
+                    Name = product.Name,
+                    Price = product.Price,
+                    Quantity = quantity
+                };
+                currentCart.Add(item);
+
             }
 
-            var cartItem = new CartItemViewModel()
-            {
-                ProductId = id,
-                Description = product.Description,
-                Image = product.ThumbnailImage,
-                Name = product.Name,
-                Price = product.Price,
-                Quantity = quantity
-            };
 
-            currentCart.Add(cartItem);
+           
 
             HttpContext.Session.SetString(SystemConstants.CartSession, JsonConvert.SerializeObject(currentCart));
             return Ok(currentCart);

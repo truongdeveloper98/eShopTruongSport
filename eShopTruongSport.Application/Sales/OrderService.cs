@@ -1,15 +1,10 @@
-﻿
-
-using eShopTruongSport.Application.Catalog.Products;
-using eShopTruongSport.Data.EF;
+﻿using eShopTruongSport.Data.EF;
 using eShopTruongSport.Data.Entities;
-using eShopTruongSport.Utilities.Exceptions;
 using eShopTruongSport.ViewModels.Common;
 using eShopTruongSport.ViewModels.Sales;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
@@ -19,8 +14,6 @@ namespace eShopTruongSport.Application.Sales
     public class OrderService : IOrderService
     {
         private readonly EShopDbContext _context;
-        private object od;
-
         public OrderService(EShopDbContext context)
         {
             _context = context;
